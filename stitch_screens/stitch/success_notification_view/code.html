@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOOLIFY_DB_V1.0 - INVENTORY_ENGINE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#580c00",
+                        "surface-container-lowest": "#0c0e12",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "primary-fixed": "#ffdad3",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "tertiary-container": "#8792a8",
+                        "surface-tint": "#ffb4a4",
+                        "secondary": "#b9c8de",
+                        "on-tertiary-fixed": "#111c2d",
+                        "on-primary": "#630e00",
+                        "outline": "#ab8982",
+                        "surface-bright": "#37393e",
+                        "on-primary-fixed-variant": "#8c1800",
+                        "surface-dim": "#111317",
+                        "secondary-container": "#39485a",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "on-surface": "#e2e2e8",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "on-primary-fixed": "#3d0600",
+                        "surface-container-highest": "#333539",
+                        "primary-container": "#ff5733",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "primary": "#ffb4a4",
+                        "inverse-surface": "#e2e2e8",
+                        "tertiary": "#bcc7de",
+                        "surface": "#111317",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5b403a",
+                        "on-tertiary-container": "#202b3d",
+                        "inverse-on-surface": "#2f3035",
+                        "tertiary-fixed": "#d8e3fb",
+                        "inverse-primary": "#b72301",
+                        "secondary-fixed": "#d4e4fa",
+                        "on-background": "#e2e2e8",
+                        "background": "#111317",
+                        "on-secondary-container": "#a7b6cc",
+                        "surface-container-low": "#1a1c20",
+                        "surface-container": "#1e2024",
+                        "surface-variant": "#333539",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "on-secondary": "#233143",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#282a2e",
+                        "on-tertiary": "#263143",
+                        "on-surface-variant": "#e4beb6",
+                        "on-error": "#690005"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #111317;
+            background-image: radial-gradient(circle at 2px 2px, #1e2024 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .step-transition {
+            transition-timing-function: steps(4, end);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-[#111317] border-b border-[#5B403A]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FFB4A4]" data-icon="terminal">terminal</span>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-[0.2em] uppercase text-lg text-[#E2E2E8] font-mono">TOOLIFY_DB_V1.0</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-[#FF5733]/10 text-[#FFB4A4]">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- NavigationDrawer (Hidden on Mobile, as per requirement for Mobile view focus) -->
+<nav class="hidden lg:flex flex-col w-64 fixed left-0 top-14 bottom-0 z-40 bg-[#111317] border-r border-[#5B403A]">
+<div class="p-4 border-b border-[#5B403A]">
+<span class="font-mono text-xs tracking-widest uppercase text-secondary">OPERATOR_MENU</span>
+</div>
+<div class="flex flex-col py-2">
+<a class="flex items-center gap-4 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-mono text-xs tracking-widest uppercase">COMMAND_CENTER</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 bg-[#FF5733] text-[#111317] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-mono text-xs tracking-widest uppercase">INVENTORY_ENGINE</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-mono text-xs tracking-widest uppercase">HANDSHAKE_PROT</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-mono text-xs tracking-widest uppercase">NEIGHBOR_LEDGER</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-14 pb-20 px-4 min-h-screen lg:pl-68">
+<!-- Inventory Header Section -->
+<section class="mt-6 mb-8 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-primary"></div>
+<span class="font-mono text-[10px] tracking-[0.3em] text-secondary uppercase">SYSTEM_STATE: ACTIVE</span>
+</div>
+<h2 class="font-headline text-3xl font-bold uppercase tracking-tight text-on-surface">INVENTORY_ENGINE</h2>
+<div class="h-px w-full bg-outline-variant opacity-40"></div>
+</section>
+<!-- Notification Alert (Sliding from top-right concept) -->
+<div class="fixed top-16 right-4 z-[60] max-w-[calc(100vw-2rem)]">
+<div class="bg-surface-container-high border border-primary p-4 flex flex-col gap-3 shadow-[8px_8px_0px_0px_rgba(255,87,51,0.2)]">
+<div class="flex items-center justify-between gap-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="sync_alt">sync_alt</span>
+<span class="font-mono text-xs font-bold text-primary">PROTOCOL_INITIATED</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="close">close</span>
+</div>
+<div class="font-mono text-sm text-on-surface border-l-2 border-primary-container pl-3">
+                    Wait for Owner Approval.
+                </div>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 bg-primary-container animate-pulse"></span>
+<span class="font-mono text-[9px] text-secondary uppercase tracking-widest">AWAITING_HANDSHAKE_V4</span>
+</div>
+</div>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Tool Item Card 1 -->
+<div class="border border-outline-variant bg-surface-container-low p-0 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<div class="aspect-video w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="Heavy duty industrial impact driver tool resting on a dark metallic workbench with blue rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqTWcaTgcIGDBB-E_LXB25fL69NcqWcgxxAWpw0UEGZ8fh0Z99ZQPg_gHzVodlRAqSu7z_4nzq9XHyl5d69lVZYmM4n4OBVpJ_goPzRaF1j9HU6IFsLWszvImAPFxPCGg000bBn78eIdaNiM1evBA3b80HaUg2bVr8kUGCDqlOf1MBR6MWcHPxJHc_EsZM2zTFmGjec9Hh6pewK1w9tgjVXEvgIiLOpNf7IRZZo7bH0hB_8WRnZr4gpZcp1-fGLRYKN1LaRIr1xiY"/>
+</div>
+<div class="p-4 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-mono text-[10px] text-secondary">CAT_ID: PWR-772</span>
+<h3 class="font-headline font-bold text-xl uppercase">IMPACT_DRIVER_V2</h3>
+</div>
+<span class="bg-on-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-1 font-mono text-[10px] border border-outline-variant">STATUS: LENT</span>
+</div>
+<div class="grid grid-cols-2 border-t border-outline-variant pt-4 gap-4">
+<div class="flex flex-col">
+<span class="font-mono text-[9px] text-secondary uppercase">BORROWER</span>
+<span class="font-mono text-xs text-on-surface">OPERATOR_ALEX</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-[9px] text-secondary uppercase">DUE_DATE</span>
+<span class="font-mono text-xs text-on-surface">24.08.12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tool Item Card 2 -->
+<div class="border border-outline-variant bg-surface-container-low p-0 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-outline opacity-30"></div>
+<div class="aspect-video w-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="Precision laser measuring tool on a technical drawing blueprint in a high-tech workshop setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzD7u300P8RYMSCP9H6BYsUtlJEKPzSAWu68Bd8epHs5mMk_RXVy3-VCwbgKwdaLjCCj2wSULBI5X4CE7Jdy0Pjo4AEPyIyLf7xhS9bGFQ5QEqHzAiOEiqrjSNdD_GQZt57upMboJJPcj1UPFw5JJ-6i1HMeOoWf53GmLSaAaG0CWdTas8Af2qWV1u268F6xMf91ko75qD-G5CmvI4VbJTZgK838XmJYU6yV4Ttz6qn4HtQ17GVNOFtUfvvS0yEU1TZ9Y1KKFnpqc"/>
+</div>
+<div class="p-4 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-mono text-[10px] text-secondary">CAT_ID: MSG-012</span>
+<h3 class="font-headline font-bold text-xl uppercase">LASER_SCANNER_PRO</h3>
+</div>
+<span class="bg-primary-container/10 text-primary px-2 py-1 font-mono text-[10px] border border-primary/30">STATUS: READY</span>
+</div>
+<button class="w-full py-3 bg-primary-container text-on-primary font-mono text-xs font-bold uppercase tracking-widest border border-primary-fixed hover:bg-primary transition-colors duration-75">
+                        INITIATE_REQUEST
+                    </button>
+</div>
+</div>
+<!-- Tool Item Card 3 (Bento Style Variation) -->
+<div class="md:col-span-2 border border-outline-variant bg-surface-container-low p-6 flex flex-col md:flex-row gap-6 relative">
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-error"></span>
+<span class="font-mono text-[10px] text-error uppercase">MAINTENANCE_REQUIRED</span>
+</div>
+<h3 class="font-headline font-bold text-2xl uppercase mb-1">OSCILLATING_MULTI_TOOL</h3>
+<p class="text-secondary text-sm font-body max-w-md">Precision cutting assembly currently undergoing firmware recalibration. Estimated uptime: 04:00:00.</p>
+</div>
+<div class="flex gap-4 mt-6">
+<div class="px-4 py-2 border border-outline-variant flex flex-col">
+<span class="font-mono text-[9px] text-secondary uppercase">LOAD_CAPACITY</span>
+<span class="font-mono text-lg font-bold">88%</span>
+</div>
+<div class="px-4 py-2 border border-outline-variant flex flex-col">
+<span class="font-mono text-[9px] text-secondary uppercase">UPTIME_LOG</span>
+<span class="font-mono text-lg font-bold">1,240H</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-64 aspect-square bg-surface-container-highest border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="Close up of mechanical gears and machine components in a dark industrial factory setting with sharp contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDolH2CLNi2aqiU-G2G3tFgOCGbyFoFGKzB2I61bP3eAAo5szUamp-ptsP0mAKsOij6UDjIBkqFskivMG_22Sinw2MP8YHyLsJEFb5JcFWnNcYA3SBMOvxwmCzkdp_nxkHDlkn7_m8S0HtJexIqFQeWI2GVJ7ndYtN3Bqrun-3xe9DOB6km3txiFdeLFneObCnAWQY-43PruEFksK-3RtOzpSOG8WIVZUhDCZHSDJe2fiwlQFCWbpAnY1JX76_LE6gUqEF-Qigt2FE"/>
+</div>
+</div>
+</div>
+<!-- Secondary Metrics Row -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-8">
+<div class="border border-outline-variant p-4 bg-surface-container-lowest">
+<span class="font-mono text-[9px] text-secondary block mb-1">AVAILABILITY_INDEX</span>
+<span class="text-2xl font-bold font-mono text-on-surface">0.842</span>
+</div>
+<div class="border border-outline-variant p-4 bg-surface-container-lowest">
+<span class="font-mono text-[9px] text-secondary block mb-1">ACTIVE_LEASES</span>
+<span class="text-2xl font-bold font-mono text-on-surface">14</span>
+</div>
+<div class="border border-outline-variant p-4 bg-surface-container-lowest">
+<span class="font-mono text-[9px] text-secondary block mb-1">TOTAL_ASSET_VAL</span>
+<span class="text-2xl font-bold font-mono text-primary">$4.2K</span>
+</div>
+<div class="border border-outline-variant p-4 bg-surface-container-lowest">
+<span class="font-mono text-[9px] text-secondary block mb-1">NODES_CONNECTED</span>
+<span class="text-2xl font-bold font-mono text-on-surface">08</span>
+</div>
+</div>
+</main>
+<!-- Data-Tape (Signature Component) -->
+<div class="fixed bottom-16 lg:bottom-0 w-full h-6 bg-surface-container-lowest border-t border-[#5B403A] z-40 overflow-hidden flex items-center">
+<div class="flex whitespace-nowrap animate-[scroll_20s_linear_infinite]">
+<span class="font-mono text-[9px] text-secondary uppercase tracking-widest px-4">SYS_LOG: HANDSHAKE_V4 INITIATED BY USER_ID_0912</span>
+<span class="font-mono text-[9px] text-primary uppercase tracking-widest px-4">●</span>
+<span class="font-mono text-[9px] text-secondary uppercase tracking-widest px-4">INVENTORY_SYNC: 100% COMPLETE</span>
+<span class="font-mono text-[9px] text-primary uppercase tracking-widest px-4">●</span>
+<span class="font-mono text-[9px] text-secondary uppercase tracking-widest px-4">ENCRYPTION_LAYER: RSA_4096_ACTIVE</span>
+<span class="font-mono text-[9px] text-primary uppercase tracking-widest px-4">●</span>
+<span class="font-mono text-[9px] text-secondary uppercase tracking-widest px-4">AWAITING_OWNER_AUTH...</span>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center lg:hidden h-16 bg-[#111317] border-t border-[#AB8982]">
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 hover:bg-[#5B403A]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">COMMAND</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#FF5733] text-[#111317] p-2" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">ENGINE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 hover:bg-[#5B403A]" href="#">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">PROTOCOL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 hover:bg-[#5B403A]" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">LEDGER</span>
+</a>
+</nav>
+<style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</body></html>

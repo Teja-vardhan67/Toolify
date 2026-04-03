@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOOLIFY_DB_V1.0 | Industrial Tool-Sharing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "inverse-surface": "#e2e2e8",
+                "on-secondary": "#233143",
+                "surface-container": "#1e2024",
+                "on-tertiary-container": "#202b3d",
+                "tertiary-fixed-dim": "#bcc7de",
+                "primary-fixed": "#ffdad3",
+                "inverse-primary": "#b72301",
+                "on-surface": "#e2e2e8",
+                "surface-container-low": "#1a1c20",
+                "secondary-fixed-dim": "#b9c8de",
+                "on-background": "#e2e2e8",
+                "on-secondary-fixed-variant": "#39485a",
+                "outline": "#ab8982",
+                "secondary-container": "#39485a",
+                "surface-container-highest": "#333539",
+                "background": "#111317",
+                "primary-container": "#ff5733",
+                "tertiary": "#bcc7de",
+                "surface-dim": "#111317",
+                "outline-variant": "#5b403a",
+                "on-tertiary-fixed-variant": "#3c475a",
+                "secondary-fixed": "#d4e4fa",
+                "surface-bright": "#37393e",
+                "on-tertiary-fixed": "#111c2d",
+                "surface": "#111317",
+                "tertiary-fixed": "#d8e3fb",
+                "error": "#ffb4ab",
+                "on-primary-fixed-variant": "#8c1800",
+                "on-primary": "#630e00",
+                "on-primary-fixed": "#3d0600",
+                "on-primary-container": "#580c00",
+                "on-error": "#690005",
+                "on-secondary-fixed": "#0d1c2d",
+                "on-secondary-container": "#a7b6cc",
+                "primary-fixed-dim": "#ffb4a4",
+                "surface-variant": "#333539",
+                "surface-tint": "#ffb4a4",
+                "tertiary-container": "#8792a8",
+                "error-container": "#93000a",
+                "on-error-container": "#ffdad6",
+                "primary": "#ffb4a4",
+                "on-surface-variant": "#e4beb6",
+                "inverse-on-surface": "#2f3035",
+                "secondary": "#b9c8de",
+                "surface-container-high": "#282a2e",
+                "surface-container-lowest": "#0c0e12",
+                "on-tertiary": "#263143"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "mono": ["JetBrains Mono"],
+                "label": ["Space Grotesk"]
+              },
+              borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-image: radial-gradient(circle at 2px 2px, #1e2024 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .data-tape-scroll {
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-[#111317] border-b border-[#5B403A]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FFB4A4]" data-icon="terminal">terminal</span>
+<h1 class="text-lg font-bold text-[#E2E2E8] tracking-[0.2em] font-mono uppercase">TOOLIFY_DB_V1.0</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-[#FFB4A4] hover:bg-[#FF5733]/10">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- NavigationDrawer (Desktop Only Hidden) -->
+<aside class="hidden lg:flex flex-col w-64 fixed left-0 top-14 bottom-0 z-40 bg-[#111317] border-r border-[#5B403A] font-mono text-xs tracking-widest uppercase">
+<div class="p-6 border-b border-[#5B403A]">
+<span class="text-secondary opacity-50 block mb-1">SYSTEM_ACCESS</span>
+<span class="text-xl font-black text-[#E2E2E8]">OPERATOR_MENU</span>
+</div>
+<nav class="flex-1 py-4">
+<a class="flex items-center gap-3 px-6 py-4 bg-[#FF5733] text-[#111317] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span> DASHBOARD
+            </a>
+<a class="flex items-center gap-3 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="handyman">handyman</span> TOOL_REGISTRY
+            </a>
+<a class="flex items-center gap-3 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span> ACTIVE_TRANSFERS
+            </a>
+<a class="flex items-center gap-3 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span> SYSTEM_LOGS
+            </a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-4 lg:ml-64 max-w-7xl mx-auto">
+<!-- Command Palette Style Search -->
+<section class="mb-8">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+</div>
+<input class="w-full bg-surface-container-high border-b border-outline py-5 pl-14 pr-20 font-mono text-sm tracking-wider focus:outline-none focus:border-primary transition-colors placeholder:text-secondary/40" placeholder="CMD+K TO INVENTORY SEARCH..." type="text"/>
+<div class="absolute inset-y-0 right-4 flex items-center gap-2">
+<kbd class="hidden md:block px-2 py-1 bg-surface-container-highest border border-outline-variant text-[10px] font-mono text-secondary">CMD</kbd>
+<kbd class="hidden md:block px-2 py-1 bg-surface-container-highest border border-outline-variant text-[10px] font-mono text-secondary">K</kbd>
+</div>
+</div>
+</section>
+<!-- Toolbox Dashboard / User Stats -->
+<section class="grid grid-cols-2 gap-px bg-outline-variant border border-outline-variant mb-8">
+<div class="bg-surface p-6">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-mono text-[10px] text-secondary tracking-[0.2em] uppercase mb-1">ITEMS_SHARED</p>
+<p class="font-headline text-4xl font-bold">14</p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="inventory_2">inventory_2</span>
+</div>
+</div>
+<div class="bg-surface p-6">
+<div class="flex items-start justify-between mb-4">
+<div>
+<p class="font-mono text-[10px] text-secondary tracking-[0.2em] uppercase mb-1">TRUST_RATING</p>
+<p class="font-headline text-4xl font-bold">98<span class="text-sm text-secondary">%</span></p>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-fixed" data-icon="verified_user">verified_user</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full">
+<div class="h-full bg-primary-container" style="width: 98%"></div>
+</div>
+</div>
+</section>
+<!-- The Inventory Engine (Bento Grid) -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline text-2xl font-bold tracking-tight uppercase">THE_INVENTORY_ENGINE</h2>
+<span class="font-mono text-[10px] text-secondary uppercase bg-surface-container-high px-2 py-1">V_2.04_STABLE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Tool Card 1 -->
+<article class="bg-surface-container border border-outline-variant relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<div class="p-4 border-b border-outline-variant flex justify-between items-center">
+<span class="font-mono text-[10px] text-secondary">EQ_TAG: MK-0912</span>
+<span class="flex items-center gap-1.5 px-2 py-0.5 bg-on-tertiary-fixed text-[#111C2D] text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 bg-[#4CAF50]"></span> AVAILABLE
+                        </span>
+</div>
+<div class="aspect-[16/9] bg-surface-container-lowest relative">
+<img alt="Impact Driver" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-alt="industrial photography of a professional impact driver power tool on a metallic workbench with dramatic overhead lighting and high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClHw_e6WhgrGEw-fxyRlPoaotFGXrhwE5vb48OtuFaxUJJLHfJETJmkE9xICuBWiwa4lJTiuZlXhk-9O-aN4UKry1AjJWlWgGsOoVqzf7hIi9BsBAZ7A7pXmgbmZT9LMMDajiA8TXjCdAnPZQTo-0Rsh-2cu_pnKs6KtiY6RbNMlNoEqZLqn60DkYA-qLv_kWzpoMynMDWvwOOBvuqkeRD0ZkAXFjWaERXjdLmC7RJFLf-r6FFKe9AZ21kwIqjnJ7uRZKyO3HXph4"/>
+</div>
+<div class="p-4">
+<h3 class="font-headline text-xl font-bold mb-1">Makita Impact Driver</h3>
+<p class="font-mono text-xs text-secondary mb-4 tracking-tighter">SPEC_01: 18V LITHIUM-ION / BRUSHLESS</p>
+<button class="w-full py-3 bg-surface-container-highest border border-outline hover:bg-primary-container hover:text-on-primary font-mono text-xs font-bold transition-all uppercase">
+                            INIT_TRANSFER
+                        </button>
+</div>
+</article>
+<!-- Tool Card 2 -->
+<article class="bg-surface-container border border-outline-variant relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-outline-variant"></div>
+<div class="p-4 border-b border-outline-variant flex justify-between items-center">
+<span class="font-mono text-[10px] text-secondary">EQ_TAG: DW-4401</span>
+<span class="flex items-center gap-1.5 px-2 py-0.5 bg-error-container text-on-error-container text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 bg-error"></span> IN USE
+                        </span>
+</div>
+<div class="aspect-[16/9] bg-surface-container-lowest relative">
+<img alt="DeWalt Miter Saw" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-300" data-alt="close-up of a professional industrial miter saw in a dark woodshop with sawdust particles in the air caught by spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKwegRN0Eh6CA7ICEEFusCfNXmTnKMe2s216vNkHGxRX4SwhhFk_kuS_iQY8miD2ADto4J7JYQvZiCqECMTE7agr3fHVhISCKay43sG8aWg0Tqs16msee5Ars6TkRBjCvdzuoFKGhiooCbCgsVnF5wHBr3j-bEBiOVjMYNylEbxPP_S4roIVtGPannlaq6IkBETBUqtPMmw1uBinhXhS3mfjqlyAPCXtMMQQqwhYQ5sQ3dxuekztVrfujV-KpkjXUd1yk7wR5XSt8"/>
+</div>
+<div class="p-4">
+<h3 class="font-headline text-xl font-bold mb-1">DeWalt Miter Saw</h3>
+<p class="font-mono text-xs text-secondary mb-4 tracking-tighter">SPEC_01: 12-INCH / COMPOUND SLIDE</p>
+<button class="w-full py-3 bg-surface-container-low border border-outline-variant text-outline-variant font-mono text-xs font-bold uppercase cursor-not-allowed" disabled="">
+                            LOCKED_UNTIL_09/24
+                        </button>
+</div>
+</article>
+<!-- Tool Card 3 -->
+<article class="bg-surface-container border border-outline-variant relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<div class="p-4 border-b border-outline-variant flex justify-between items-center">
+<span class="font-mono text-[10px] text-secondary">EQ_TAG: BS-2209</span>
+<span class="flex items-center gap-1.5 px-2 py-0.5 bg-on-tertiary-fixed text-[#111C2D] text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 bg-[#4CAF50]"></span> AVAILABLE
+                        </span>
+</div>
+<div class="aspect-[16/9] bg-surface-container-lowest relative">
+<img alt="Bosch Rotary Hammer" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" data-alt="heavy duty rotary hammer drill resting on a concrete floor with dust and construction debris in an industrial setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn7ToLmouPkdUNYsMoEu_xIydi4kwnXs0-1CS-82Wr5QlQgUffjduZzntimJGOP9HHTHhz8gIxjUSkS0Kjgfet0cBhKdVGQCEMNQHbFuNHCLRPhQHcv9UeWfFs55p0KKn5Cra7E2Ne2syB0XJ6E2Z-lvulUyIDAnqGINC4vSJVgdVhvC-bzKSVWSRilpBP5UdsCyQJCn6xS59ZivkYMAjVZCHg6W2--XJWztyYZSgQuBoj_Dva4QWvPTLV72aiQz-MBjY3x5JkCEw"/>
+</div>
+<div class="p-4">
+<h3 class="font-headline text-xl font-bold mb-1">Bosch Rotary Hammer</h3>
+<p class="font-mono text-xs text-secondary mb-4 tracking-tighter">SPEC_01: SDS-PLUS / 8.0 AMP</p>
+<button class="w-full py-3 bg-surface-container-highest border border-outline hover:bg-primary-container hover:text-on-primary font-mono text-xs font-bold transition-all uppercase">
+                            INIT_TRANSFER
+                        </button>
+</div>
+</article>
+</div>
+</section>
+<!-- Primary Action -->
+<section class="mb-12 flex flex-col items-center">
+<button class="group relative px-12 py-6 bg-primary-container text-[#111317] font-headline font-black text-xl uppercase tracking-widest transition-transform hover:scale-105 active:scale-95">
+<span class="relative z-10">REQUEST ACCESS</span>
+<div class="absolute inset-0 border-2 border-primary translate-x-1 translate-y-1 -z-10 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform"></div>
+</button>
+<p class="mt-4 font-mono text-[10px] text-secondary tracking-widest">ENCRYPTED_CONNECTION_SECURE</p>
+</section>
+<!-- Community HUD / Live Activity Feed -->
+<section class="bg-surface-container-lowest border border-outline-variant overflow-hidden">
+<div class="p-3 border-b border-outline-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-mono text-[10px] text-on-surface uppercase tracking-widest">LIVE_ACTIVITY_FEED</span>
+</div>
+<div class="p-4 font-mono text-xs leading-relaxed space-y-1 text-secondary">
+<p><span class="text-primary">[14:22:01]</span> USER_ID_4492 -&gt; <span class="text-on-surface">BORROWED</span> -&gt; ITEM_ID_MK-0912</p>
+<p><span class="text-primary">[13:58:45]</span> USER_ID_0012 -&gt; <span class="text-error">RETURNED</span> -&gt; ITEM_ID_DW-4401</p>
+<p><span class="text-primary">[12:15:30]</span> USER_ID_8831 -&gt; <span class="text-on-surface">BORROWED</span> -&gt; ITEM_ID_BS-2209</p>
+<p><span class="text-primary">[11:04:12]</span> USER_ID_2104 -&gt; <span class="text-on-surface">BORROWED</span> -&gt; ITEM_ID_TS-7781</p>
+</div>
+</section>
+</main>
+<!-- Data-Tape Footer (Signature Component) -->
+<div class="fixed bottom-16 lg:bottom-0 w-full h-6 bg-surface-container-lowest border-t border-outline-variant overflow-hidden flex items-center z-50">
+<div class="data-tape-scroll whitespace-nowrap font-mono text-[9px] text-secondary tracking-tighter uppercase">
+            CORE_SYSTEM_HEALTH: 100% | ACTIVE_USERS: 1,402 | TOTAL_TOOLS_IN_NETWORK: 12,894 | NETWORK_LATENCY: 14MS | SYNC_STATUS: NOMINAL | SECURITY_PROTOCOL: V4_ACTIVE | NODE_SHARING_ENABLED | 
+        </div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center lg:hidden h-16 bg-[#111317] border-t border-[#AB8982] font-mono text-[10px] uppercase tracking-tighter">
+<a class="flex flex-col items-center justify-center bg-[#FF5733] text-[#111317] p-2 w-full h-full" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>DASH</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 w-full h-full hover:bg-[#5B403A]" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+<span>TOOLS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 w-full h-full hover:bg-[#5B403A]" href="#">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+<span>TRANS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 w-full h-full hover:bg-[#5B403A]" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span>LOGS</span>
+</a>
+</nav>
+</body></html>

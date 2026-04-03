@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOOLIFY_DB_V1.0 | COMMAND_CENTER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#580c00",
+              "surface-container-lowest": "#0c0e12",
+              "on-secondary-fixed": "#0d1c2d",
+              "primary-fixed": "#ffdad3",
+              "on-tertiary-fixed-variant": "#3c475a",
+              "tertiary-container": "#8792a8",
+              "surface-tint": "#ffb4a4",
+              "secondary": "#b9c8de",
+              "on-tertiary-fixed": "#111c2d",
+              "on-primary": "#630e00",
+              "outline": "#ab8982",
+              "surface-bright": "#37393e",
+              "on-primary-fixed-variant": "#8c1800",
+              "surface-dim": "#111317",
+              "secondary-container": "#39485a",
+              "on-secondary-fixed-variant": "#39485a",
+              "on-surface": "#e2e2e8",
+              "on-error-container": "#ffdad6",
+              "secondary-fixed-dim": "#b9c8de",
+              "on-primary-fixed": "#3d0600",
+              "surface-container-highest": "#333539",
+              "primary-container": "#ff5733",
+              "primary-fixed-dim": "#ffb4a4",
+              "primary": "#ffb4a4",
+              "inverse-surface": "#e2e2e8",
+              "tertiary": "#bcc7de",
+              "surface": "#111317",
+              "error": "#ffb4ab",
+              "outline-variant": "#5b403a",
+              "on-tertiary-container": "#202b3d",
+              "inverse-on-surface": "#2f3035",
+              "tertiary-fixed": "#d8e3fb",
+              "inverse-primary": "#b72301",
+              "secondary-fixed": "#d4e4fa",
+              "on-background": "#e2e2e8",
+              "background": "#111317",
+              "on-secondary-container": "#a7b6cc",
+              "surface-container-low": "#1a1c20",
+              "surface-container": "#1e2024",
+              "surface-variant": "#333539",
+              "tertiary-fixed-dim": "#bcc7de",
+              "on-secondary": "#233143",
+              "error-container": "#93000a",
+              "surface-container-high": "#282a2e",
+              "on-tertiary": "#263143",
+              "on-surface-variant": "#e4beb6",
+              "on-error": "#690005"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .data-tape-scroll {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-[#111317] border-b border-[#5B403A]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FFB4A4]" data-icon="terminal">terminal</span>
+<h1 class="text-lg font-bold text-[#E2E2E8] tracking-[0.2em] font-mono">TOOLIFY_DB_V1.0</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-[#B9C8DE] hover:bg-[#FF5733]/10 hover:text-[#FFB4A4]">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop Only) -->
+<aside class="hidden lg:flex flex-col w-64 fixed left-0 top-14 bottom-0 z-40 bg-[#111317] border-r border-[#5B403A]">
+<div class="p-6 border-b border-[#5B403A]">
+<span class="font-mono text-xs tracking-widest uppercase text-[#B9C8DE]">OPERATOR_MENU</span>
+</div>
+<nav class="flex-1 py-4">
+<a class="flex items-center gap-4 px-6 py-4 bg-[#FF5733] text-[#111317] font-bold font-mono text-xs tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>COMMAND_CENTER</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] font-mono text-xs tracking-widest uppercase transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span>INVENTORY_ENGINE</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] font-mono text-xs tracking-widest uppercase transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>HANDSHAKE_PROT</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#B9C8DE] hover:border-l-4 hover:border-[#FF5733] hover:bg-[#111C2D] font-mono text-xs tracking-widest uppercase transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span>NEIGHBOR_LEDGER</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[#5B403A]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-mono text-[10px] text-secondary">OPERATOR_ID</p>
+<p class="font-mono text-xs font-bold text-on-surface">UNIT_42_ALPHA</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-14 pb-16 lg:pb-0 min-h-screen">
+<!-- Data Tape (Signature Component) -->
+<div class="h-6 bg-surface-container-lowest border-b border-outline-variant overflow-hidden flex items-center">
+<div class="data-tape-scroll font-mono text-[10px] text-secondary tracking-widest uppercase">
+<span class="mx-8">System Status: OPTIMAL</span>
+<span class="mx-8 text-primary">NEW_REQUEST: HEAVY_DUTY_HAMMER_DRILL_V4</span>
+<span class="mx-8">LOCAL_TRUST_INDEX: 0.982</span>
+<span class="mx-8">UPLOADING_LOGS_TO_LEDGER...</span>
+<span class="mx-8">System Status: OPTIMAL</span>
+<span class="mx-8 text-primary">NEW_REQUEST: HEAVY_DUTY_HAMMER_DRILL_V4</span>
+<span class="mx-8">LOCAL_TRUST_INDEX: 0.982</span>
+<span class="mx-8">UPLOADING_LOGS_TO_LEDGER...</span>
+</div>
+</div>
+<div class="p-4 lg:p-8 space-y-6">
+<!-- Hero Header Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="md:col-span-2 space-y-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="font-mono text-[10px] tracking-widest text-primary uppercase">MODULE_DASHBOARD</span>
+</div>
+<h2 class="text-3xl font-headline font-bold text-on-surface leading-none tracking-tight">COMMAND_CENTER</h2>
+<p class="font-mono text-xs text-secondary mt-2">Active session for AUTH_ID: 882-99-ALPHA-X</p>
+</div>
+<div class="bg-surface-container-high p-4 border border-outline-variant flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-mono text-[10px] text-secondary uppercase">Uptime_Metric</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="bolt">bolt</span>
+</div>
+<div class="mt-4">
+<span class="text-2xl font-mono font-bold text-on-surface">142:12:08</span>
+<p class="font-mono text-[10px] text-secondary">TOTAL_SESSION_TIME</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Main Dashboard -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Active Leases (Transfers) -->
+<section class="lg:col-span-8 space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant pb-2">
+<h3 class="font-headline text-sm font-bold tracking-widest text-on-surface uppercase flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span>
+                            ACTIVE_LEASES
+                        </h3>
+<span class="font-mono text-[10px] text-secondary uppercase">3 Items Active</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Lease Card 01 -->
+<div class="bg-surface-container-low border border-outline-variant group hover:border-primary transition-colors cursor-pointer">
+<div class="aspect-video overflow-hidden border-b border-outline-variant">
+<img alt="Power tool" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="industrial heavy duty power drill on a metal workbench with cinematic blue and orange lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwBKlpEemvyjwgcxQ9TxZZqWWXiqD1MgEaB8dZhbbMxYUBHT1862_7uJ9QYyGMrK26b2xgazsEHUDi8Zzwtvv81kfcN6skF0ApslUiaz_sTjjpkQHERw9e0Dua37nqwmh3YRWlt3tgRt1FJqCQygQs3NAXtEqP1bQ8HAAmL6e7B57NZS4rUEJkjYjuDP1y-kxESjW5F6tC3OKvFtxCVbFgmixC5ffQrnM4zm7A51LLTU6NjH_omww2S73NpvoF2pKrfVqQ5WYVvA4"/>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="font-mono text-sm font-bold text-on-surface">BOSCH_DRILL_V2</h4>
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 border border-primary/20">IN_USE</span>
+</div>
+<div class="bg-surface-container-lowest p-3 border border-outline-variant">
+<div class="flex justify-between items-center mb-1">
+<span class="font-mono text-[10px] text-secondary">REMAINING_TIME</span>
+<span class="material-symbols-outlined text-xs text-primary" data-icon="schedule">schedule</span>
+</div>
+<span class="font-mono text-xl font-bold text-primary tracking-tighter">48:12:05</span>
+</div>
+</div>
+</div>
+<!-- Lease Card 02 -->
+<div class="bg-surface-container-low border border-outline-variant group hover:border-primary transition-colors cursor-pointer">
+<div class="aspect-video overflow-hidden border-b border-outline-variant">
+<img alt="Precision tools" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" data-alt="digital calipers and precision engineering tools laid out on a blueprint background with technical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdJn8MZ6wOT-636-0Rr7qY-iuAov-fIKEgzKaHJwokuaWqCneQrdsu2cXikiTbWGnmXgzbHWTQMIHjbH7qAyFrJk2-Gzw8M8JljSj350DA7KruQ0QTw3WFRpFXRzqIMC2_l8xF1ecrSpDkMTrn4DZjWcRssblzghnYEaqY7Xs9K6G0fFF1E7shkZpmg7kztFC3R0gSnjTsHIRhbAlPUEmyNyNwOESpVJEp9_X2Kj-wFprsC-2Lb2adV4936ct3tXQh1zIWA8hYV9M"/>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="font-mono text-sm font-bold text-on-surface">PRECISION_CALIB_KIT</h4>
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 border border-primary/20">IN_USE</span>
+</div>
+<div class="bg-surface-container-lowest p-3 border border-outline-variant">
+<div class="flex justify-between items-center mb-1">
+<span class="font-mono text-[10px] text-secondary">REMAINING_TIME</span>
+<span class="material-symbols-outlined text-xs text-primary" data-icon="schedule">schedule</span>
+</div>
+<span class="font-mono text-xl font-bold text-primary tracking-tighter">12:44:59</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reputation Ledger (Trust Hub) -->
+<section class="lg:col-span-4 space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant pb-2">
+<h3 class="font-headline text-sm font-bold tracking-widest text-on-surface uppercase flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span>
+                            REPUTATION_LEDGER
+                        </h3>
+</div>
+<div class="bg-surface-container-high border border-outline-variant p-6 space-y-6">
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="font-mono text-4xl font-black text-on-surface tracking-tighter">982.5</span>
+<span class="font-mono text-[10px] text-secondary tracking-widest uppercase">TRUST_INDEX_RATING</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-mono text-[10px] text-secondary">
+<span>PROTOCOL_ADHERENCE</span>
+<span>98%</span>
+</div>
+<div class="h-4 bg-surface-container-lowest border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary-container w-[98%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-mono text-[10px] text-secondary">
+<span>EQUIPMENT_CARE_SCORE</span>
+<span>94%</span>
+</div>
+<div class="h-4 bg-surface-container-lowest border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary-container w-[94%]"></div>
+</div>
+</div>
+<div class="pt-4 grid grid-cols-2 gap-2">
+<div class="bg-surface-container-lowest border border-outline-variant p-2 text-center">
+<p class="font-mono text-lg font-bold text-on-surface">12</p>
+<p class="font-mono text-[8px] text-secondary uppercase">Successful_Handovers</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-2 text-center">
+<p class="font-mono text-lg font-bold text-on-surface">0</p>
+<p class="font-mono text-[8px] text-secondary uppercase">Failure_Protocols</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Neighborhood Ledger (Activity Feed) -->
+<section class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant pb-2">
+<h3 class="font-headline text-sm font-bold tracking-widest text-on-surface uppercase flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span>
+                        NEIGHBORHOOD_LEDGER
+                    </h3>
+<span class="font-mono text-[10px] text-secondary uppercase">Live Feed</span>
+</div>
+<div class="bg-[#0c0e12] border border-outline-variant p-4 h-64 overflow-y-auto font-mono text-xs text-secondary space-y-1.5 no-scrollbar">
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[14:22:01]</span>
+<p><span class="text-on-surface font-bold">USER_882</span> <span class="text-primary">-&gt; REQUESTED -&gt;</span> <span class="text-on-surface">BOSCH_DRILL_V2</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[14:15:44]</span>
+<p><span class="text-on-surface font-bold">OPERATOR_91</span> <span class="text-secondary-fixed">-&gt; RETURNED -&gt;</span> <span class="text-on-surface">HILTI_LASER_MEASURE</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[13:59:12]</span>
+<p><span class="text-on-surface font-bold">SYSTEM</span> <span class="text-primary-container">-&gt; BROADCAST -&gt;</span> <span class="text-secondary">NEW_NODE_JOINED_SECTOR_7</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[13:42:05]</span>
+<p><span class="text-on-surface font-bold">USER_771</span> <span class="text-primary">-&gt; HANDOVER_COMPLETE -&gt;</span> <span class="text-on-surface">UNIT_42_ALPHA</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[12:11:00]</span>
+<p><span class="text-on-surface font-bold">USER_882</span> <span class="text-primary">-&gt; LEASE_EXPIRED -&gt;</span> <span class="text-error">DEWALT_PLANER_X</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[11:55:22]</span>
+<p><span class="text-on-surface font-bold">OPERATOR_12</span> <span class="text-primary">-&gt; REQUESTED -&gt;</span> <span class="text-on-surface">MAKITA_JIGSAW_900</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[11:02:41]</span>
+<p><span class="text-on-surface font-bold">SYSTEM</span> <span class="text-on-tertiary-fixed-variant">-&gt; AUTHENTICATING -&gt;</span> <span class="text-secondary">SECTOR_GATEWAY_V1</span></p>
+</div>
+<div class="flex items-start gap-4 hover:bg-white/5 p-1 transition-colors">
+<span class="text-outline shrink-0">[10:45:09]</span>
+<p><span class="text-on-surface font-bold">USER_449</span> <span class="text-primary">-&gt; REQUESTED -&gt;</span> <span class="text-on-surface">BOSCH_DRILL_V2</span></p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center lg:hidden h-16 bg-[#111317] border-t border-[#AB8982]">
+<a class="flex flex-col items-center justify-center bg-[#FF5733] text-[#111317] p-2 w-full h-full" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">COMMAND</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 w-full h-full hover:bg-[#5B403A] transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">ENGINE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 w-full h-full hover:bg-[#5B403A] transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">PROTOCOL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B9C8DE] p-2 w-full h-full hover:bg-[#5B403A] transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-mono text-[10px] uppercase tracking-tighter">LEDGER</span>
+</a>
+</nav>
+<!-- FAB Action Button -->
+<button class="fixed right-6 bottom-20 lg:bottom-8 lg:right-8 bg-primary-container text-on-primary p-4 shadow-none hover:bg-primary transition-all duration-75 z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

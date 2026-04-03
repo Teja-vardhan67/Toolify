@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOOLIFY_OS_v1.0 - ACCOUNT_PROVISION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "on-primary-fixed": "#3d0600",
+                        "primary-container": "#ff5733",
+                        "on-tertiary-fixed": "#111c2d",
+                        "on-surface-variant": "#e4beb6",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "surface-container": "#1e2024",
+                        "on-primary-fixed-variant": "#8c1800",
+                        "background": "#111317",
+                        "tertiary-container": "#8792a8",
+                        "surface-container-high": "#282a2e",
+                        "on-primary-container": "#580c00",
+                        "tertiary": "#bcc7de",
+                        "surface-variant": "#333539",
+                        "primary": "#ffb4a4",
+                        "inverse-surface": "#e2e2e8",
+                        "on-secondary": "#233143",
+                        "on-secondary-container": "#a7b6cc",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "surface-container-lowest": "#0c0e12",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "secondary-fixed": "#d4e4fa",
+                        "error-container": "#93000a",
+                        "surface-tint": "#ffb4a4",
+                        "primary-fixed-dim": "#ffb4a4",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "surface": "#111317",
+                        "secondary": "#b9c8de",
+                        "on-surface": "#e2e2e8",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1a1c20",
+                        "outline-variant": "#5b403a",
+                        "on-primary": "#630e00",
+                        "surface-bright": "#37393e",
+                        "surface-dim": "#111317",
+                        "inverse-primary": "#b72301",
+                        "inverse-on-surface": "#2f3035",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "on-background": "#e2e2e8",
+                        "secondary-container": "#39485a",
+                        "tertiary-fixed": "#d8e3fb",
+                        "outline": "#ab8982",
+                        "surface-container-highest": "#333539",
+                        "primary-fixed": "#ffdad3",
+                        "on-tertiary": "#263143",
+                        "on-tertiary-container": "#202b3d"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #111317;
+            background-image: radial-gradient(#1e2024 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .data-tape-scroll {
+            white-space: nowrap;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-surface selection:bg-primary-container selection:text-white">
+<!-- TopAppBar from Shared Components (Modified for Transactional Suppression) -->
+<header class="w-full top-0 border-b border-[#5B403A] bg-[#111317] flex justify-between items-center px-4 py-3 fixed z-50">
+<div class="flex items-center gap-2 font-['JetBrains_Mono'] font-bold text-[#FFB4A4] border-l-2 border-[#FF5733] pl-2 uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+            TOOLIFY_OS_v1.0
+        </div>
+<div class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-secondary flex items-center gap-4">
+<span>SECURE_SESSION_v2</span>
+<span class="material-symbols-outlined text-xs" data-icon="settings_input_component">settings_input_component</span>
+</div>
+</header>
+<main class="min-h-screen pt-[52px] flex flex-col md:flex-row">
+<!-- Left Panel: Status & Brand Intent -->
+<section class="w-full md:w-1/3 border-r border-outline-variant bg-surface-container-lowest p-6 flex flex-col justify-between">
+<div>
+<div class="mb-8">
+<div class="inline-flex items-center gap-2 border border-outline-variant px-3 py-1 mb-4 bg-surface-container">
+<div class="w-2 h-2 bg-primary animate-pulse"></div>
+<span class="font-mono text-[10px] tracking-tighter text-secondary">SYSTEM_READINESS: 98%</span>
+</div>
+<h1 class="font-headline font-bold text-4xl leading-none text-on-surface mb-4">ACCOUNT_PROVISION</h1>
+<p class="font-mono text-sm text-secondary leading-relaxed opacity-70">
+                        Initializing environmental variables for top-level tool orchestration. Operator must verify identity before accessing the core filesystem.
+                    </p>
+</div>
+<!-- Status Log Bento Component -->
+<div class="border border-outline-variant p-4 font-mono text-[11px] space-y-2 bg-[#0c0e12]">
+<div class="flex justify-between border-b border-outline-variant pb-1">
+<span class="text-secondary">[TIMESTAMP]</span>
+<span class="text-primary-container">LOG_STATE</span>
+</div>
+<div class="text-secondary opacity-50">14:22:01 — Handshaking with node_77...</div>
+<div class="text-secondary opacity-50">14:22:02 — Metadata integrity check [OK]</div>
+<div class="text-secondary opacity-50">14:22:03 — Encrypting provision_token...</div>
+<div class="text-primary border-l-2 border-primary pl-2 bg-primary/5 py-1 mt-2">
+                        AWAITING_OPERATOR_INPUT...
+                    </div>
+</div>
+</div>
+<div class="mt-12 hidden md:block">
+<div class="w-full h-48 border border-outline-variant relative overflow-hidden grayscale opacity-40">
+<img alt="Server room infrastructure" class="object-cover w-full h-full" data-alt="Close-up of industrial server rack with blue led indicator lights in a dark data center, cinematic technical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy7L8tAEsk0A8-jCJUUlJBpmaf2RF6w4daIoS2g_Lx5kpyLlEQd3pC7cwbU4hcls4S1vB_ir5CGmxiesEoZMW-1h0m5LFv4Db9N5dU6cz6IzeoHi21WrmuQNCWXDMrG2dGgMfujBNohxL-EP_td1CYrYqmK1w80HTXUnbWS8Bzt9Byqbano1M7RmJi9r7Kl-433DG-KL6gkLSu8nGUInc05ZG-Qo-1qaerWY5oCOMbEXbUjDIpPx2prUCHY7gy1wilSv0otibU8sU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Registration Form -->
+<section class="flex-1 bg-surface-dim p-6 md:p-12 lg:p-20 overflow-y-auto">
+<div class="max-w-xl mx-auto">
+<form class="space-y-8">
+<!-- Form Header Meta -->
+<div class="flex items-baseline gap-2 border-b border-outline-variant pb-2 mb-8">
+<span class="font-mono text-xs text-primary-container">FORM_REF: 00-AF-10</span>
+<div class="h-[1px] flex-1 bg-outline-variant opacity-30"></div>
+<span class="font-mono text-xs text-secondary">REVISION_2024</span>
+</div>
+<!-- Input Fields -->
+<div class="space-y-6">
+<div class="group">
+<label class="block font-mono text-[10px] text-secondary mb-1 uppercase tracking-widest">[OPERATOR_NAME]</label>
+<input class="w-full bg-surface-container-low border-b border-outline text-on-surface font-mono p-3 focus:outline-none focus:border-primary-container focus:ring-0 transition-colors placeholder:opacity-20" placeholder="e.g. MARCUS_VAUGHN" type="text"/>
+</div>
+<div class="group">
+<label class="block font-mono text-[10px] text-secondary mb-1 uppercase tracking-widest">[EMAIL_COMM]</label>
+<input class="w-full bg-surface-container-low border-b border-outline text-on-surface font-mono p-3 focus:outline-none focus:border-primary-container focus:ring-0 transition-colors placeholder:opacity-20" placeholder="operator@toolify.os" type="email"/>
+</div>
+<div class="group">
+<label class="block font-mono text-[10px] text-secondary mb-1 uppercase tracking-widest">[ORGANIZATION_ID]</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-b border-outline text-on-surface font-mono p-3 pr-10 focus:outline-none focus:border-primary-container focus:ring-0 transition-colors placeholder:opacity-20" placeholder="ORGN-XXXX-XXXX" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-sm" data-icon="fingerprint">fingerprint</span>
+</div>
+</div>
+</div>
+<!-- Verification Layer: Community Clearance -->
+<div class="border border-outline-variant bg-surface-container-low p-6">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="font-headline font-bold text-sm tracking-wide uppercase">Community Clearance</h3>
+</div>
+<p class="font-body text-xs text-secondary mb-6 leading-relaxed">
+                            Upload a high-fidelity image of your valid operator identification card. This is required for level-2 clearance protocols.
+                        </p>
+<div class="border-2 border-dashed border-outline-variant flex flex-col items-center justify-center p-8 hover:border-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-outline mb-2 group-hover:text-primary" data-icon="add_a_photo">add_a_photo</span>
+<span class="font-mono text-[10px] text-secondary uppercase">Drop photo or CLICK_TO_BROWSE</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-4 pt-4">
+<button class="w-full bg-primary-container text-white font-mono font-bold py-4 border border-primary-fixed-dim hover:bg-primary hover:text-on-primary-fixed transition-all active:translate-y-[1px] flex items-center justify-center gap-3 uppercase tracking-widest" type="submit">
+                            PROVISION_ACCOUNT
+                            <span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</button>
+<div class="flex justify-center">
+<a class="font-mono text-xs text-secondary hover:text-error transition-colors flex items-center gap-2 py-2" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+                                [ABORT_MISSION]
+                            </a>
+</div>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Data Tape Footer (Signature Component) -->
+<footer class="fixed bottom-0 left-0 w-full h-8 bg-surface-container-lowest border-t border-outline-variant flex items-center overflow-hidden z-50">
+<div class="data-tape-scroll font-mono text-[10px] text-secondary/60 flex gap-8 px-4 items-center">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-on-tertiary-fixed rounded-full"></span> SYSTEM_LIVE</span>
+<span class="opacity-40">:: NODE_WEST_CAN_12 ::</span>
+<span>ENCRYPTION_ACTIVE: AES-256</span>
+<span class="opacity-40">::</span>
+<span class="text-primary-container">PENDING_REGISTRATION: [NULL]</span>
+<span class="opacity-40">::</span>
+<span>ID_VALIDATION: WAITING</span>
+<span class="opacity-40">::</span>
+<span>UPTIME: 99.9982%</span>
+<span class="opacity-40">::</span>
+<span>SECURE_DATA_RELAY_ENABLED</span>
+</div>
+</footer>
+</body></html>
