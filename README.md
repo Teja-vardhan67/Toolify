@@ -49,30 +49,46 @@ Toolify/
 │   └── mvnw / mvnw.cmd   # Maven wrapper scripts
 │
 └── stitch_screens/       # Project UI mockups and design assets
+```
 
-🚀 Installation & Running Locally
-1. Clone the Repository
+---
+
+## 🚀 Installation & Running Locally
+
+### 1. Clone the Repository
+```bash
 git clone https://github.com/Teja-vardhan67/Toolify.git
 cd Toolify
+```
 
-2. Run Backend (Java Spring Boot)
+### 2. Run Backend (Java Spring Boot)
+```bash
 cd backend
 # On Windows
 mvnw.cmd spring-boot:run
+
 # On Linux/macOS
 ./mvnw spring-boot:run
-The API server will launch at http://localhost:8080.
+```
+The API server will launch at `http://localhost:8080`.
 
-3. Run Frontend (React + Vite)
+### 3. Run Frontend (React + Vite)
+```bash
 cd ../frontend
 npm install
 npm run dev
-Open http://localhost:5173 in your browser.
+```
+Open `http://localhost:5173` in your browser.
 
-🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to visit the issues page.
+---
 
-👤 Author
-Teja Vardhan
+## 🤝 Contributing
 
-GitHub: @Teja-vardhan67
+Contributions, issues, and feature requests are welcome! Feel free to visit the [issues page](https://github.com/Teja-vardhan67/Toolify/issues).
+
+---
+
+## 👤 Author
+
+**Teja Vardhan**
+- GitHub: [@Teja-vardhan67](https://github.com/Teja-vardhan67)
